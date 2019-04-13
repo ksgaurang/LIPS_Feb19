@@ -1,0 +1,7 @@
+<h1>
+  ToDo
+</h1>
+
+<router-outlet></router-outlet> <hr>
+<app-todo-add [todo]="task" (addTodo)="addToDo($event)" (updatedToDo)="updateTask($event)"></app-todo-add>
+<app-todo-list [todoList]="list" (selectedTask)="currentTask($event)" (removeTask)="deleteTask($event)"></app-todo-list>

@@ -1,0 +1,22 @@
+<h1>
+  Insurance Providers
+</h1>
+
+<table class="table" *ngIf="providers">
+    <thead>
+      <tr>
+        <th>Sr No</th>
+        <th>Name</th>
+        <th>Cash Less</th>
+        <th>Daily Limit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr [ngClass]="isEven ? 'even' : 'odd'" *ngFor="let provider of providers; index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd; trackBy:trachByFn">
+         <td>{{i + 1 }} {{isFirst}} {{isLast}} {{isEven}} {{isOdd}}</td>
+          <td>{{provider.name}}</td>
+          <td [innerText]="provider.cashLess"></td>
+          <td>{{provider.dailyLimit}}</td>
+      </tr>
+    </tbody>
+</table>

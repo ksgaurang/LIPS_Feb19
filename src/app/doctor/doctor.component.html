@@ -1,0 +1,21 @@
+<!-- <h3>Selected Doctor Details</h3> -->
+<app-header></app-header>
+<button class="btn btn-primary" (click)="addDoctor()">Add New Doctor</button>
+<br><br>
+<div>
+    Name : {{selectedDoctor?.name}} <br>
+    Speciality : {{selectedDoctor?.speciality}} <br>
+    Degree : {{selectedDoctor?.degree}} <br>
+    JoinedOn : {{selectedDoctor?.joinedOn}} <br>
+    Salary : {{selectedDoctor?.salary}} <br>
+    Contact No: {{selectedDoctor?.contactNo}}
+</div>
+<br><br>
+
+<!-- for ViewChildren testing start -->
+<app-header></app-header>
+<app-header></app-header>
+<!-- for ViewChildren testing end -->
+<app-content>
+    <app-doctor-list [docList]="doctorList" (selectedDoctor)="receiveDoctorDetails($event)"> </app-doctor-list>
+</app-content>

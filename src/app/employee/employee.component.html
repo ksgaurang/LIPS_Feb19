@@ -1,0 +1,20 @@
+<!-- ng_container example sart -->
+<app-employee-list></app-employee-list>
+<!-- ng_container example sart -->
+
+<p>
+  Employee Name : {{name}}
+  <br> Employee Name :{{getName()}}    <!--function calling -->
+</p>
+
+<!-- <h4 [id]="name" [hidden]="isHidden" [innerText]="name"></h4> -->
+
+
+<input class="form-control" type="text" [hidden]="isHidden" [value]="name" placeholder="Name" (change)="changeName($event)">
+<input class="form-control" type="text" [hidden]="isHidden" [value]="city" placeholder="City">
+
+<button class="btn btn-primary" type="button" (click)="toggleInputs()">Toggle</button>
+
+
+<!-- *ng -->
+<h4 [id]="name" *ngIf="isHidden" [innerText]="name"></h4>

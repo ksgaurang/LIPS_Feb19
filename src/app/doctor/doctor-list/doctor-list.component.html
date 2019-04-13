@@ -1,0 +1,32 @@
+<h3>
+  Doctor List
+</h3>
+
+<table class="table" *ngIf="docList">
+  <thead>
+    <tr>
+      <th>Sr No</th>
+      <th>Name</th>
+      <th>Speciality</th>
+      <th>Degree</th>
+      <th>Joining Date</th>
+      <th>Salary</th>
+      <th>Contact No</th>
+      <th>Select</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let doctor of docList; index as i;">
+      <td>{{i + 1}}</td>
+      <td>{{doctor.name}}</td>
+      <td>{{doctor.speciality}}</td>
+      <td>{{doctor.degree}}</td>
+      <td>{{doctor.joinedOn}}</td>
+      <td>{{doctor.salary}}</td>
+      <td>{{doctor.contactNo}}</td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="sendSelectedDoctor(doctor)">Select</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

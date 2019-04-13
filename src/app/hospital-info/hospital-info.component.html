@@ -1,0 +1,17 @@
+<h1 #hospHeader>Hospital Info</h1>
+<div>
+<!-- Json Object : {{hospital | json}}    gives you json object -->
+</div>
+ 
+<div>
+  Name : {{hospital?.name}}
+</div>
+<div>
+  Address : {{hospital.address === undefined? 'Pune' : hospital.address}}
+</div>
+<div>
+  Specialization : {{hospital?.specialization}}
+</div>
+
+<hr>
+<app-insurance-provider></app-insurance-provider>

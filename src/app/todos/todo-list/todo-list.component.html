@@ -1,0 +1,23 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Completed</th>
+      <th>Edit</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let todo of todoList">
+      <td>{{todo.userId}}</td>
+      <td>{{todo.id}}</td>
+      <td>{{todo.title}}</td>
+      <td>{{todo.completed}}</td>
+      <td><button class="btn btn-primary" (click)="editTask(todo)">Edit</button></td>
+      <td><button class="btn btn-primary" (click)="deleteTask(todo)">Delete</button></td>
+      <td><button class="btn btn-primary" [routerLink]="['/todo', todo.id]">Details</button></td> <!--  First Parameter : routename, Second Parameter : Parameter name -->
+    </tr>
+  </tbody>
+</table>
