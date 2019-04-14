@@ -56,7 +56,8 @@ export class DoctorComponent implements OnInit, DoCheck, AfterViewInit {
     // ];
 
     // will modify the object. will not work with change detection onPush
-    // this.doctorList.push({name : 'Kaya', speciality:'Women Specialist', degree:'MD,MBBS', joinedOn: new Date('01-01-2000'), contactNo:'4568674435', salary:100000})
+    // this.doctorList.push({name : 'Kaya', speciality:'Women Specialist', degree:'MD,MBBS',
+    // joinedOn: new Date('01-01-2000'), contactNo:'4568674435', salary:100000})
   }
 
   receiveDoctorDetails(doctor: IDoctor) {
