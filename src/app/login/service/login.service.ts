@@ -7,14 +7,18 @@ import { IUser } from '../service/IUser';
 export class LoginService {
 
   isLoggedIn = false;
+  isAdmin = false;
+
   constructor() { }
 
   login(user: IUser) {
     if (user.password === 'test'
       && user.userName === 'test') {
       this.isLoggedIn = true;
-    } else {
-      this.isLoggedIn = false;
+    } else if (user.password === 'admin'
+    && user.userName === 'admin') {
+      this.isLoggedIn = true;
+      this.isAdmin = true;
     }
     return this.isLoggedIn;
   }
