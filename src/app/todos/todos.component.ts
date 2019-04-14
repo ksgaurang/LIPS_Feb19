@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TodoService } from './service/todo.service';
 import { ITodo } from './service/todo';
 import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-todos',
@@ -20,14 +21,19 @@ export class TodosComponent implements OnInit, OnDestroy {
     completed : false
   };
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.loadTask();
   }
 
   loadTask() {
-    this.listScubscription =  this.todoService.getTodoList().subscribe((data) => this.list = data);
+   // this.listScubscription =  this.todoService.getTodoList().subscribe((data) => this.list = data);
+
+   this.route.data.subscribe((result) => {
+     this.list = result['todoList'];
+   });
+
   }
 
   addToDo(todo: ITodo) {
@@ -52,7 +58,7 @@ export class TodosComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.listScubscription ? this.listScubscription.unsubscribe() : this.noop();
+    // this.listScubscription ? this.listScubscription.unsubscribe() : this.noop();   // comment for resolve guard, no need to use
   }
 
   noop() {}
