@@ -10,6 +10,8 @@ import { PageNotFoundComponent } from '../page-not-found/page-not-found.componen
 import { TodoDetailsComponent } from '../todos/todo-details/todo-details.component';
 import { LoginComponent } from '../login/login.component';
 import { AuthGuard } from '../guard/auth.guard';
+import { PatientRegistrationComponent } from '../patient/patient-registration/patient-registration.component';
+import { RoomListComponent } from '../room/room-list/room-list.component';
 
 @NgModule({
   declarations: [],
@@ -21,7 +23,8 @@ import { AuthGuard } from '../guard/auth.guard';
       {path : 'employee', component: EmployeeComponent, canActivate: [AuthGuard]},
       {path : 'doctor', component: DoctorComponent, canActivate: [AuthGuard]},
       {path : 'dashboard', component: DashboardComponent},
-      {path : 'patient', component: PatientComponent, canActivate: [AuthGuard]},
+      {path : 'patient', component: PatientRegistrationComponent},
+      {path : 'room', component: RoomListComponent},
       {path : '', redirectTo : 'login', pathMatch: 'full'},
       // {path : '', redirectTo : 'todo', pathMatch: 'full'},   // default page
       {path : '**', component : PageNotFoundComponent}

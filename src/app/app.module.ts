@@ -22,6 +22,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { DoctorModule } from './doctor/doctor/doctor.module';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
+import { PatientRegistrationComponent } from './patient/patient-registration/patient-registration.component';
+import { RoomComponent } from './room/room.component';
+import { RoomListComponent } from './room/room-list/room-list.component';
 
 
 @NgModule({
@@ -37,7 +40,10 @@ import { LoginComponent } from './login/login.component';
     PostsListComponent,
     MainNavComponent,
     PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    PatientRegistrationComponent,
+    RoomComponent,
+    RoomListComponent
   ],
   imports: [
     BrowserModule,

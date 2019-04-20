@@ -1,0 +1,55 @@
+{{registrationForm.invalid | json}}
+{{registrationForm.valid | json}}
+{{registrationForm.pristine | json}}
+{{registrationForm.dirty | json}}
+{{registrationForm.value | json}}
+
+<form [formGroup]="registrationForm">
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Name" formControlName="name">
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Age" formControlName="age">
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Email" formControlName="email">
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Mobile" formControlName="mobile">
+  </mat-form-field>
+  <div formGroupName="address">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Address Line1" formControlName="addressLine1">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Address Line2" formControlName="addressLine2">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="City" formControlName="city">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Pin Code" formControlName="pin">
+    </mat-form-field>
+  </div>
+  <div formArrayName="previousHistory">
+    <div *ngFor="let history of registrationForm['controls'].previousHistory['controls']; let i=index">
+      <div [formGroupName]="i">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="hospitalizedAt" formControlName="hospitalizedAt">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="From Date" formControlName="fromdate">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="To Date" formControlName="todate">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Desease" formControlName="desease">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button [disabled]="registrationForm.invalid" type="submit" mat-raised-button color="primary">Register</button>
+  </div>
+</form>

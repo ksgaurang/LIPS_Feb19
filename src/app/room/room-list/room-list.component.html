@@ -1,0 +1,46 @@
+{{roomsForm.invalid | json}}
+{{roomsForm.valid | json}}
+{{roomsForm.pristine | json}}
+{{roomsForm.dirty | json}}
+{{roomsForm.value | json}}
+
+<form [formGroup]="roomsForm">
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Room Type" formControlName="roomType">
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Room Availability" formControlName="roomAvailability">
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Room Cost" formControlName="roomCost">
+  </mat-form-field>
+
+  <div formGroupName="facilities">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Swiming Pool" formControlName="swimingPool">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="children Garden" formControlName="childrenGarden">
+    </mat-form-field>
+  </div>
+
+  <div formArrayName="previousHistory">
+    <div *ngFor="let history of roomsForm['controls'].previousHistory['controls']; let i=index">
+      <div [formGroupName]="i">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Admission ID" formControlName="admissionID">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Checking Date" formControlName="checkingDate">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Check-out Date" formControlName="checkoutDate">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button [disabled]="roomsForm.invalid" type="submit" mat-raised-button color="primary">Add</button>
+  </div>
+
+</form>

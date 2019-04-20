@@ -5,7 +5,7 @@ import { HeaderComponent } from '../header/header.component';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
   MatFormFieldModule, MatInputModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
@@ -25,6 +25,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     LayoutModule,
     MatFormFieldModule,
     MatInputModule,
+    ReactiveFormsModule
   ],
   exports: [
     CommonModule,
@@ -40,6 +41,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     ContentComponent,
     MatFormFieldModule,
     MatInputModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }
