@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ContentComponent } from '../content/content.component';
 import { HeaderComponent } from '../header/header.component';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
-  MatFormFieldModule, MatInputModule } from '@angular/material';
+  MatFormFieldModule, MatInputModule, MatNativeDateModule, MatDatepickerModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -41,7 +41,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     ContentComponent,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ]
 })
 export class SharedModule { }

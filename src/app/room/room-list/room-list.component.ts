@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder} from '@angular/forms'
+import { FormGroup, FormControl, FormBuilder, FormArray} from '@angular/forms'
 
 @Component({
   selector: 'app-room-list',
@@ -22,12 +22,21 @@ export class RoomListComponent implements OnInit {
         childrenGarden: new FormControl()
       }),
       previousHistory: this.fb.array([
-        this.fb.group({
-          admissionID: new FormControl(),
-          checkingDate: new FormControl(),
-          checkoutDate: new FormControl(),
-        })
+        this.buildForm()
       ])
     });
+  }
+
+  private buildForm(): any {
+    return this.fb.group({
+      admissionID: new FormControl(),
+      checkingDate: new FormControl(),
+      checkoutDate: new FormControl()
+    });
+  }
+
+  addRoom() {
+    const historyControl =  this.roomsForm['controls'].previousHistory as FormArray;
+    historyControl.push(this.buildForm());
   }
 }

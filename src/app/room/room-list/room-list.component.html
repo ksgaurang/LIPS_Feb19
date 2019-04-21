@@ -23,7 +23,7 @@
       <input matInput placeholder="children Garden" formControlName="childrenGarden">
     </mat-form-field>
   </div>
-
+  <button type="button" mat-raised-button color="primary" (click)="addRoom()">Add Room</button>
   <div formArrayName="previousHistory">
     <div *ngFor="let history of roomsForm['controls'].previousHistory['controls']; let i=index">
       <div [formGroupName]="i">
