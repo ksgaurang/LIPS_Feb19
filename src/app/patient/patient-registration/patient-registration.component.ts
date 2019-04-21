@@ -31,14 +31,19 @@ export class PatientRegistrationComponent implements OnInit {
       previousHistory: this.fb.array([
         this.buildForm()
       ])
-    }, {updateOn: 'blur'}); // this is for form level
+    }, { validators:[CustomValidator.validateDateRange] , updateOn: 'blur'}); // this is for form level
+
+    // to get form level changes
+    this.registrationForm.valueChanges.subscribe((data) => {
+      console.log(data);
+    });
   }
 
   private buildForm(): any {
     return this.fb.group({
       hospitalizedAt: new FormControl('', [Validators.required]),
       fromdate: new FormControl('', [Validators.required]),
-      todate: new FormControl(''),
+      todate: new FormControl('', [Validators.required]),
       desease: new FormControl('', [Validators.required])
     });
   }

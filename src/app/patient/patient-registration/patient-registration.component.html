@@ -44,7 +44,10 @@
           {{ registrationForm.get(['previousHistory', i, 'hospitalizedAt']).errors | json  }}
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="From Date" formControlName="fromdate">
+          <input matInput [matDatepicker]="dtpicker" placeholder="From Date" formControlName="fromdate">
+          <mat-datepicker-toggle matSuffix [for]="dtpicker"></mat-datepicker-toggle>
+          <mat-datepicker #dtpicker></mat-datepicker>
+          {{ registrationForm.get(['previousHistory', i, 'fromdate']).errors | json  }}
         </mat-form-field>
         <mat-form-field class="full-width">
           <input matInput [matDatepicker]="picker"  placeholder="To Date" formControlName="todate">
