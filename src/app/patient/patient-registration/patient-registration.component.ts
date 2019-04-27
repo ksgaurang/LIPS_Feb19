@@ -10,10 +10,13 @@ import { CustomValidator } from 'src/app/customValidator/custom.validator.servic
 export class PatientRegistrationComponent implements OnInit {
 
   registrationForm: FormGroup;
+  isChanged = false;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+
+
 
     this.registrationForm = this.fb.group({
       name: new FormControl('', {
@@ -36,7 +39,29 @@ export class PatientRegistrationComponent implements OnInit {
     // to get form level changes
     this.registrationForm.valueChanges.subscribe((data) => {
       console.log(data);
+      this.isChanged = true;
     });
+
+    this.bindData();
+  }
+
+  bindData() {
+    this.registrationForm.patchValue({
+      name: 'Test Patient',
+      age: 10,
+      email: 'test@gmail.com',
+      mobile: '91232432',
+      address: {
+        addressLine1: 'Street No 3',
+        addressLine2: 'Amar Apex',
+        city: 'Pune',
+        pin: 418382,
+      },
+      previousHistory: [
+        {hospitalizedAt: 'JM Hospital', desease: 'NA'}
+      ]
+    });
+
   }
 
   private buildForm(): any {
@@ -58,4 +83,21 @@ export class PatientRegistrationComponent implements OnInit {
     historyControl.removeAt(i);
   }
 
+  saveData() {
+    console.log('Saved Values ' + this.registrationForm.getRawValue());
+    this.registrationForm.reset({name: '',
+    age: 0,
+    email: '',
+    mobile: 0,
+    address: {
+      addressLine1: '',
+      addressLine2: '',
+      city: '',
+      pin: 0,
+    },
+    previousHistory: [
+      {hospitalizedAt: '', desease: ''},
+    ]});
+    this.isChanged = false;
+  }
 }

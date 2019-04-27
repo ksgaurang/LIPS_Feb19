@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, CanLoad, CanActivateChild, RouterStateSnapshot,
-  Router, Route, UrlSegment } from '@angular/router';
+  Router, Route, UrlSegment, CanDeactivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginService } from '../login/service/login.service';
+import { PatientRegistrationComponent } from '../patient/patient-registration/patient-registration.component'
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate, CanLoad, CanActivateChild {
+export class AuthGuard implements CanActivate, CanLoad, CanActivateChild, CanDeactivate<PatientRegistrationComponent> {
 
   constructor(private loginService: LoginService, private route: Router) { }
 
@@ -34,4 +35,10 @@ export class AuthGuard implements CanActivate, CanLoad, CanActivateChild {
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       return this.loginService.isAdmin ? true : false;
   }
+
+  canDeactivate(component: PatientRegistrationComponent, currentRoute: ActivatedRouteSnapshot,
+    currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot): Observable<boolean> | Promise<boolean>
+    | boolean{
+        return component.isChanged ? false : true;
+    }
 }

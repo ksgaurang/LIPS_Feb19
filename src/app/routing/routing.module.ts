@@ -23,7 +23,7 @@ import { RoomListComponent } from '../room/room-list/room-list.component';
       {path : 'employee', component: EmployeeComponent, canActivate: [AuthGuard]},
       {path : 'doctor', component: DoctorComponent, canActivate: [AuthGuard]},
       {path : 'dashboard', component: DashboardComponent},
-      {path : 'patient', component: PatientRegistrationComponent},
+      {path : 'patient', component: PatientRegistrationComponent, canDeactivate: [AuthGuard]},
       {path : 'room', component: RoomListComponent},
       {path : '', redirectTo : 'login', pathMatch: 'full'},
       // {path : '', redirectTo : 'todo', pathMatch: 'full'},   // default page
