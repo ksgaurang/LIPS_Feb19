@@ -50,7 +50,7 @@
           {{ registrationForm.get(['previousHistory', i, 'fromdate']).errors | json  }}
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput [matDatepicker]="picker"  placeholder="To Date" formControlName="todate">
+          <input matInput [matDatepicker]="picker" placeholder="To Date" formControlName="todate">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>

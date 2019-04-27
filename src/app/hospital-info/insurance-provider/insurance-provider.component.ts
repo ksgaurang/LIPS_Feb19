@@ -9,9 +9,9 @@ import {IInsuranceProvider} from './IInsurance-provider';
 export class InsuranceProviderComponent implements OnInit {
 
   providers: Array<IInsuranceProvider> = [
-    {name : 'CANARA', cashLess : true, dailyLimit : 50000},
-    {name : 'Star Health', cashLess : false, dailyLimit : 10000},
-    {name : 'HDFC', cashLess : true, dailyLimit : 150000}
+    {name : 'CANARA', cashLess : true, dailyLimit : 50000, coverage: .5, activateFrom : new Date('12-Jan-1980')},
+    {name : 'Star Health', cashLess : false, dailyLimit : 10000, coverage: .7, activateFrom : new Date('21-May-1989')},
+    {name : 'HDFC', cashLess : true, dailyLimit : 150000, coverage: .9, activateFrom : new Date('9-Aug-2000')}
   ];
 
   constructor() { }
