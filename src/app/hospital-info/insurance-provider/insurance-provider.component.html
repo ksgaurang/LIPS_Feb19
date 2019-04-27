@@ -1,7 +1,7 @@
 <h1>
   Insurance Providers
 </h1>
-
+<input type="text" [(ngModel)]="providerName" name="provider" placeholder="Provider Name">
 <table class="table" *ngIf="providers">
     <thead>
       <tr>
@@ -14,10 +14,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr [ngClass]="isEven ? 'even' : 'odd'" *ngFor="let provider of providers; index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd; trackBy:trachByFn">
+      <tr [ngClass]="isEven ? 'even' : 'odd'" *ngFor="let provider of providers | search : providerName; index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd; trackBy:trachByFn">
          <td>{{i + 1 }} {{isFirst}} {{isLast}} {{isEven}} {{isOdd}}</td>
           <td>{{provider.name | lowercase}}</td>
-          <td [innerText]="provider.cashLess"></td>
+          <td [innerText]="provider.cashLess | mode"></td>
           <td>{{provider.dailyLimit | currency: 'INR'}}</td>
           <td>{{provider.coverage | percent}}</td>
           <td>{{provider.activateFrom | date: 'dd-MMM-yyyy'}}</td>

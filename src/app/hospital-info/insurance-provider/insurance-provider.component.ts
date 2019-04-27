@@ -8,6 +8,8 @@ import {IInsuranceProvider} from './IInsurance-provider';
 })
 export class InsuranceProviderComponent implements OnInit {
 
+  providerName = '';
+
   providers: Array<IInsuranceProvider> = [
     {name : 'CANARA', cashLess : true, dailyLimit : 50000, coverage: .5, activateFrom : new Date('12-Jan-1980')},
     {name : 'Star Health', cashLess : false, dailyLimit : 10000, coverage: .7, activateFrom : new Date('21-May-1989')},

@@ -25,6 +25,8 @@ import { LoginComponent } from './login/login.component';
 import { PatientRegistrationComponent } from './patient/patient-registration/patient-registration.component';
 import { RoomComponent } from './room/room.component';
 import { RoomListComponent } from './room/room-list/room-list.component';
+import { ModePipe } from './hospital-info/mode.pipe';
+import { SearchPipe } from './hospital-info/search.pipe';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { RoomListComponent } from './room/room-list/room-list.component';
     LoginComponent,
     PatientRegistrationComponent,
     RoomComponent,
-    RoomListComponent
+    RoomListComponent,
+    ModePipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
