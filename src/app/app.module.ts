@@ -27,6 +27,12 @@ import { RoomComponent } from './room/room.component';
 import { RoomListComponent } from './room/room-list/room-list.component';
 import { ModePipe } from './hospital-info/mode.pipe';
 import { SearchPipe } from './hospital-info/search.pipe';
+import { APP_CONFIG, IAppConfig } from 'core';
+import { environment } from '../environments/environment';
+
+const app_config: IAppConfig = {
+    apiEndPoint: environment.apiEndPoint
+};
 
 
 @NgModule({
@@ -57,7 +63,8 @@ import { SearchPipe } from './hospital-info/search.pipe';
     SharedModule,
     RoutingModule
   ],
-  providers: [],
+  providers: [
+    {provide: APP_CONFIG, useValue: app_config}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,10 @@
-import { Component, SkipSelf, OnInit } from '@angular/core';
+import { Component, SkipSelf, OnInit, Inject } from '@angular/core';
 import { IPatient } from './patient/IPatient';
 import { IDoctor } from './doctor/service/IDoctor';
 import { DoctorService } from './doctor/service/doctor.service';
 import { ObservableService } from './observables/observable.service';
 import { Router, NavigationStart } from '@angular/router';
+import { APP_CONFIG, IAppConfig } from 'core';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,10 @@ export class AppComponent implements OnInit {
   constructor(
     @SkipSelf() private doctorService: DoctorService,
     private obsService: ObservableService,
-    private router: Router) {}
+    private router: Router,
+    @Inject(APP_CONFIG) private appConfig: IAppConfig) {
+      console.log(appConfig);
+    }
   title = 'Hospital Management System';
   role = '';
 
