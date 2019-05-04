@@ -3,6 +3,7 @@ import { TodoService } from './service/todo.service';
 import { ITodo } from './service/todo';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { HttpResponse, HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-todos',
@@ -12,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class TodosComponent implements OnInit, OnDestroy {
 
   listScubscription: Subscription;
+  totalData = 0;
 
   list: ITodo[] = [];
   task: ITodo = {
@@ -25,6 +27,13 @@ export class TodosComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadTask();
+
+    this.todoService.getPhotos().subscribe((result) => {
+      console.log(result);
+      if (result.type === HttpEventType.DownloadProgress) {
+        this.totalData += result.loaded;
+      }
+    });
   }
 
   loadTask() {
