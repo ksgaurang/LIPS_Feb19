@@ -1,10 +1,10 @@
 <form #loginForm="ngForm" (submit)="login()">
   <mat-form-field class="full-width">
-    <input required matInput placeholder="User Name" name="username" [(ngModel)]="user.userName">
+    <input appHover required matInput placeholder="User Name" name="username" [(ngModel)]="user.userName">
   </mat-form-field>
 
   <mat-form-field class="full-width">
-    <input required matInput placeholder="password" type="password" name="password" [(ngModel)]="user.password">
+    <input appHover required matInput placeholder="password" type="password" name="password" [(ngModel)]="user.password">
   </mat-form-field>
   <div>
     <button [disabled]="loginForm.invalid" type="submit" mat-raised-button color="primary">Login</button>
