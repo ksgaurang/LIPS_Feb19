@@ -33,6 +33,7 @@ import { environment } from '../environments/environment';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomInterceptorService } from './customInterceptor/custom.Interceptor.service';
 import { HoverDirective } from './customDirective/hover.directive';
+import { CustomValidatorDirective } from './customDirective/custom-validator.directive';
 
 const app_config: IAppConfig = {
     apiEndPoint: environment.apiEndPoint
@@ -58,7 +59,8 @@ const app_config: IAppConfig = {
     RoomListComponent,
     ModePipe,
     SearchPipe,
-    HoverDirective
+    HoverDirective,
+    CustomValidatorDirective
   ],
   imports: [
     BrowserModule,

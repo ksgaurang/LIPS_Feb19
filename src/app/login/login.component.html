@@ -4,7 +4,7 @@
   </mat-form-field>
 
   <mat-form-field class="full-width">
-    <input appHover required matInput placeholder="password" type="password" name="password" [(ngModel)]="user.password">
+    <input appHover appCustomValidator required matInput placeholder="password" type="password" name="password" [(ngModel)]="user.password">
   </mat-form-field>
   <div>
     <button [disabled]="loginForm.invalid" type="submit" mat-raised-button color="primary">Login</button>
