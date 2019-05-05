@@ -3,7 +3,7 @@ import { Validator, NG_VALIDATORS, ValidationErrors, AbstractControl } from '@an
 
 @Directive({
   selector: '[appCustomValidator]',
-  providers: [{provide: NG_VALIDATORS, useExisting: CustomValidatorDirective, multi: true}]
+  providers: [{ provide: NG_VALIDATORS, useExisting: CustomValidatorDirective, multi: true }]
 })
 export class CustomValidatorDirective implements Validator {
 
@@ -12,7 +12,7 @@ export class CustomValidatorDirective implements Validator {
   validate(control: AbstractControl): ValidationErrors | null {
     if (control != null && control.value != null) {
       if (control.value.length < 4) {
-        return { invalidPassword: true};
+        return { invalidPassword: true };
       } else {
         return null;
       }

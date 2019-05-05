@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TodosRoutingModule } from './todos-routing.module';
@@ -8,7 +8,7 @@ import { TodoAddComponent } from './todo-add/todo-add.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
-
+import { createCustomElement } from '@angular/elements'
 
 @NgModule({
   declarations: [
@@ -20,6 +20,17 @@ import { TodoDetailsComponent } from './todo-details/todo-details.component';
   imports: [
     TodosRoutingModule,
     SharedModule
+  ],
+  entryComponents: [  // for custom elements we need this
+    TodosComponent,
+    TodoListComponent,
+    TodoAddComponent,
+    TodoDetailsComponent
   ]
 })
-export class TodosModule { }
+export class TodosModule {
+      constructor(private inject: Injector) {
+          const todo =  createCustomElement(TodoAddComponent, { injector: inject});
+          customElements.define('todo-element', todo);
+      }
+}

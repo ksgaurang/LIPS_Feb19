@@ -78,3 +78,5 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+// for creating custom elements
+ import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js';

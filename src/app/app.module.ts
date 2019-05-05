@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 
@@ -76,6 +76,7 @@ const app_config: IAppConfig = {
     {provide: APP_CONFIG, useValue: app_config},
     {provide: HTTP_INTERCEPTORS, useClass: CustomInterceptorService, multi: true }
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
