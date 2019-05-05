@@ -11,7 +11,7 @@ export class CustomValidatorDirective implements Validator {
 
   validate(control: AbstractControl): ValidationErrors | null {
     if (control != null && control.value != null) {
-      if (control.value.length < 6) {
+      if (control.value.length < 4) {
         return { invalidPassword: true};
       } else {
         return null;

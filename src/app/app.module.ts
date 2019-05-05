@@ -34,6 +34,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomInterceptorService } from './customInterceptor/custom.Interceptor.service';
 import { HoverDirective } from './customDirective/hover.directive';
 import { CustomValidatorDirective } from './customDirective/custom-validator.directive';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 const app_config: IAppConfig = {
     apiEndPoint: environment.apiEndPoint
@@ -68,7 +69,8 @@ const app_config: IAppConfig = {
     // TodosModule,    // remved for lay loading
     DoctorModule,
     SharedModule,
-    RoutingModule
+    RoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {provide: APP_CONFIG, useValue: app_config},
