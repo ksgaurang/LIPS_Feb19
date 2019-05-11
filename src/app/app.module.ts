@@ -2,16 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
-
-
-
-
 import { AppComponent } from './app.component';
-import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeComponent, EmployeeListComponent } from './employee';
 import { HospitalInfoComponent } from './hospital-info/hospital-info.component';
 import { InsuranceProviderComponent } from './hospital-info/insurance-provider/insurance-provider.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 import { PatientComponent } from './patient/patient.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';

@@ -18,3 +18,19 @@
 
 <!-- *ng -->
 <h4 [id]="name" *ngIf="isHidden" [innerText]="name"></h4>
+
+<ng-container *ngTemplateOutlet="admin">
+
+</ng-container>
+
+<ng-container *ngTemplateOutlet="user">
+
+</ng-container>
+
+<ng-template #admin>
+  This is admin area
+</ng-template>
+
+<ng-template #user>
+  This is user area
+</ng-template>
